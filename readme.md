@@ -6,8 +6,8 @@ QueueBot is very useful for dapp UX and simplifying contract interfaces. To see 
 
 Without QueueBot there would be two options:
 
-	1. Make 10 different transactions (its possible that some of these get mined and some do not)
-	2. Create 10! (10 factorial) "setter" functions with each combination of fields.
+1. Make 10 different transactions (its possible that some of these get mined and some do not)
+2. Create 10! (10 factorial) "setter" functions with each combination of fields.
 
 ### ABI
 

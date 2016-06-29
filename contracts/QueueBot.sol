@@ -18,6 +18,10 @@ contract QueueBot{
 		uint[] calldataLengths,
 		bytes gluedCalldatas
 	) {
+		if(msg.sender != owner) {
+			throw;
+		}
+
 		if( addrs.length != values.length || addrs.length != calldataLengths.length ) {
 			throw;
 		}

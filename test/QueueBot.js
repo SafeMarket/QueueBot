@@ -46,6 +46,22 @@ describe('QueueBot', () => {
     })
   })
 
+  it('queuebot should have correct owner', () => {
+    return queuebot.owner.q().should.eventually.be.equal(account)
+  })
+
+  it('queuebot should be able to set owner to accounts[1]', () => {
+    return queuebot.setOwner.q(accounts[1]).should.be.fulfilled
+  })
+
+  it('queuebot should NOT be able to set owner to accounts[1] (incorrect owner)', () => {
+    return queuebot.setOwner.q(account).should.be.rejected
+  })
+
+  it('queuebot should be able to set owner to account', () => {
+    return queuebot.setOwner.q(account, { from: accounts[1] }).should.be.fulfilled
+  })
+
   it('register should have "a","b","c","d","e" set to 0', () => {
     return web3.Q.all([
       register.a.q().should.eventually.be.bignumber.equal(0),
@@ -54,6 +70,11 @@ describe('QueueBot', () => {
       register.d.q().should.eventually.be.bignumber.equal(0),
       register.e.q().should.eventually.be.bignumber.equal(0)
     ]).should.be.fulfilled
+  })
+
+  it('should NOT be able to set "a" to 1 (incorrect owner)', () => {
+    const calldataA = register.setA.getData(1)
+    return queuebot.queue.q([register.address], [0], [calldataA.length/2 - 1], calldataA, { from: accounts[1] }).should.be.rejected
   })
 
   it('should be able to set "a" to 1', () => {

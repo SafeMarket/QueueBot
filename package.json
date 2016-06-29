@@ -1,0 +1,19 @@
+{
+  "name": "queuebot",
+  "version": "1.0.0",
+  "description": "Queue an arbitrary number of transactions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Aakil Fernandes",
+  "license": "MIT",
+  "devDependencies": {
+    "chaithereum": "^1.2.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-solc": "^0.3.0",
+    "mocha": "^2.5.3"
+  }
+}
